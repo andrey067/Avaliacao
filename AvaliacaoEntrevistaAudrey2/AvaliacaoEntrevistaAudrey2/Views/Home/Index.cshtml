@@ -1,116 +1,116 @@
-﻿@{
+﻿@model AvaliacaoEntrevistaAudrey2.Models.Equipamento
+@{
+    Layout = "_Layout";
     ViewData["Title"] = "Home Page";
-   //AvaliacaoEntrevistaAudrey2.Models.Equipamento equipamento = (AvaliacaoEntrevistaAudrey2.Models.Equipamento)ViewData["CONTATO"];
-
 }
 
-<form asp-action="CadastroCliente" asp-controller="Home" method="post">
-    <main role="main">
+@using (Html.BeginForm("Cadastrar", "home", FormMethod.Post))
+{
+    <form method="post">
+        <main role="main">
+            <section class="container" style="margin-top: 50px">
+                <div class="row">
+                    <aside class="col-sm-10">
+                        <div id="">
+                            <div class="card-body">
+                                <header class="card-header">
 
-        <section class="container" style="margin-top: 50px">
-            <div class="row">
-                <aside class="col-sm-10">
-                    <div id="">
-                        <div class="card-body">
-                            <header class="card-header">
-
-                                <h4 class="card-title mt-2">Equipamento-Editar</h4>
-                            </header>
-                            <article class="card-body">
-                                @if (TempData["MSG_S"] != null)
-                                {
-                                    <p class="alert alert-success">@TempData["MSG_S"]</p>
-                               }
-                            <form role="form" method="post" action="/Home/ContatoAcao">
-                                <div class="form-group">
-                                    <label for="nome">Nome</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    <h4 class="card-title mt-2">Equipamento-Editar</h4>
+                                </header>
+                                <article class="card-body">
+                                    @if (TempData["MSG_S"] != null)
+                                    {
+                                        <p class="alert alert-success">@TempData["MSG_S"]</p>
+                                    }
+                                    <div class="form-group">
+                                        <label for="nome">Nome</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                            </div>
+                                            @Html.TextBoxFor(m => m.Nome, new { @class = "form-control" })
                                         </div>
-                                        <input type="text" id="nome" class="form-control" name="nome" placeholder=""
-                                               required="" value=@*"@(contato !=null ? contato.Nome : "" )"*@>
                                     </div>
-                                </div>
 
-                                <div class="form-group">
-                                    <label for="text">Identificador do Equipamento</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="fa fa-at"></i></span>
+                                    <div class="form-group">
+                                        <label for="text">Identificador do Equipamento</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fa fa-at"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" name="Identificador do Equipamento" id="IdentidicadorEp" placeholder="" value=@*"@(contato !=null ? contato.Email : "" )"*@>
                                         </div>
-                                        <input type="text" class="form-control" name="Identificador do Equipamento" id="IdentidicadorEp" placeholder="" value=@*"@(contato !=null ? contato.Email : "" )"*@>
                                     </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="text">UF Origem</label>
-                                    <select class="form-control form-control-lg">
-                                        <option>Large select</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="text">UF Destino</label>
-                                    <select class="form-control form-control">
-                                        <option>Large select</option>
-                                    </select>
-                                </div>
-                                <div>
+                                    <div class="form-group">
+                                        <label for="text">UF Origem</label>
+                                        <select class="form-control form-control-lg">
+                                            <option>Large select</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="text">UF Destino</label>
+                                        <select class="form-control form-control">
+                                            <option>Large select</option>
+                                        </select>
+                                    </div>
                                     <div>
-                                        <label for="text">Sentido da Via</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                        <label class="form-check-label" for="inlineRadio1">Entrada</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                        <label class="form-check-label" for="inlineRadio2">Saida</label>
-                                    </div>
+                                        <div>
+                                            <label for="text">Sentido da Via</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                            <label class="form-check-label" for="inlineRadio1">Entrada</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">Saida</label>
+                                        </div>
 
 
-                                </div>
-                                <div>
+                                    </div>
                                     <div>
-                                        <label for="text">Sentido da Leitura</label>
+                                        <div>
+                                            <label for="text">Sentido da Leitura</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                            <label class="form-check-label" for="exampleRadios1">
+                                                Entrada na UF
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2">
+                                            <label class="form-check-label" for="exampleRadios1">
+                                                Saida na UF
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option3">
+                                            <label class="form-check-label" for="exampleRadios1">
+                                                Indeterminado
+                                            </label>
+                                        </div>
                                     </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            Entrada na UF
-                                        </label>
+                                    <div class="form-group">
+                                        <label for="text">Situação</label>
+                                        <select class="form-control form-control-lg">
+                                            <option>Large select</option>
+                                        </select>
                                     </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option2">
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            Saida na UF
-                                        </label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option3">
-                                        <label class="form-check-label" for="exampleRadios1">
-                                            Indeterminado
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="text">Situação</label>
-                                    <select class="form-control form-control-lg">
-                                        <option>Large select</option>
-                                    </select>
-                                </div>
 
-                                <div>
-                                    <p>
-                                        <button class="btn btn-primary" type="submit"> Salvar </button>
-                                        <button type="button" class="btn btn-outline-secondary">Voltar</button>
-                                    </p>
-                                </div>
-                            </form>
-                            </article>
+                                    <div>
+                                        <p>
+                                            <button class="btn btn-primary" type="submit"> Salvar </button>
+                                            <button type="button" class="btn btn-outline-secondary">Voltar</button>
+                                        </p>
+                                    </div>
+
+                                </article>
+                            </div>
                         </div>
-                    </div>
-                </aside>
-            </div>
-        </section>
-    </main>
-</form>
+                    </aside>
+                </div>
+            </section>
+        </main>
+    </form>
+}
